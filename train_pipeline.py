@@ -29,6 +29,15 @@ print(y)
 variable.shape
 variable.describe()
 
+Counter(variable["Target"])
+variable.info()
+variable.columns
+
+constant_imp=SimpleImputer(strategy='constant', fill_value=0)
+list_constant=["education"]
+variable[list_constant]=constant_imp.fit_transform(df[list_constant])
+
+
 from sklearn.model_selection import train_test_split
 
 x = variable[['age', 'marital']]
@@ -169,10 +178,17 @@ model = LinearRegression()
 
 model.fit(x_train, y_train)
 
-model.predict(x_test)
-print(y_test)
+pred_y=model.predict(x_test)
+from sklearn.metrics import classification_report
+print(classification_report(test_y,pred_y))
+
+from sklearn.metrics import confusion_matrix
+confusion_matrix(test_y,pred_y)
+
 
 model.score(x_test, y_test)
+variable['Target']=test_y.tolist()
+variable['Predicted_Target'] = pred_y.tolist()
 
 
 #Features_Scaling
