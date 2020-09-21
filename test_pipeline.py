@@ -15,8 +15,12 @@ from sklearn.model_selection import train_test_split
 
 pwd
 
-df = pd.read_csv(r"/Users/sanjirsalsabil/Desktop/bank.csv")
-df.head()
+df=pd.read_excel('bank_testing.csv')
+
+df.info()
+df.columns
+df=df.dropna()
+
 
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
