@@ -15,7 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 pwd
 
-variable = pd.read_csv(r"/Users/sanjirsalsabil/Desktop/DSS Learning/ml_pipeline_bank_SalsabiL/bank.csv")
+variable = pd.read_csv(r"/Users/sanjirsalsabil/Desktop/DSS Learning/ml_pipeline_bank_SalsabiL/data/bank_training.csv")
 variable.head()
 
 X = variable.iloc[:, :-1].values
